@@ -7,9 +7,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from urllib.parse import urlparse
+from pathlib import Path
 import os
 from dotenv import load_dotenv
-from fastapi import Request
 
 # ─────────────────────────────
 # LOAD ENV VARIABLES
@@ -46,8 +46,9 @@ app.add_middleware(
 # ROOT (TEST ROUTE)
 # ─────────────────────────────
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+BASE_DIR = Path(__file__).resolve().parent
+app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 
 
