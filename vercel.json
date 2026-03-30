@@ -4,6 +4,11 @@
       "runtime": "@vercel/python@3.1.0"
     }
   },
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.11"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
