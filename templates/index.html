@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kactii News – Tech & AI Stories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="/" class="logo">
+          <span class="logo-mark">K</span>
+          <span class="logo-text">Kactii <span class="logo-news">News</span></span>
+        </a>
+        <nav class="header-nav">
+          <a href="/submit" class="nav-link">submit</a>
+        </nav>
+      </div>
+      <div class="header-right">
+        <button class="search-btn" id="searchToggle" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="search-bar" id="searchBar">
+      <input type="text" id="searchInput" placeholder="Search stories, topics, domains…" autocomplete="off" />
+      <button class="search-close" id="searchClose">✕</button>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+    <main class="feed" id="feed">
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="ai">AI</button>
+        <button class="filter-btn" data-cat="tech">Tech</button>
+        <button class="filter-btn" data-cat="science">Science</button>
+        <button class="filter-btn" data-cat="show">Show KN</button>
+        <button class="filter-btn" data-cat="law">Law</button>
+      </div>
+
+      <div id="skeletonList" class="story-list">
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+        <div class="skeleton-item"></div>
+      </div>
+
+      <ol class="story-list" id="storyList" style="display:none"></ol>
+
+      <div class="load-more-wrap">
+        <button class="load-more" id="loadMore" style="display:none">More stories →</button>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <span class="logo-mark">K</span>
+          <span class="logo-text">Kactii <span class="logo-news">News</span></span>
+        </a>
+        <p>A community for curious minds. Tech, AI, science and ideas worth sharing.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Guidelines</a>
+        <a href="#">FAQ</a>
+        <a href="#">API</a>
+        <a href="#">Security</a>
+        <a href="#">Legal</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 Kactii News. Built with curiosity.</div>
+    </div>
+  </footer>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
