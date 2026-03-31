@@ -3,261 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Submit | Kactii News</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: Verdana, Geneva, sans-serif;
-      font-size: 10pt;
-      background: #f6f6ef;
-      color: #000;
-      min-height: 100vh;
-    }
-
-    a { color: #000; text-decoration: none; }
-    a:visited { color: #828282; }
-
-    #hnmain {
-      width: 85%;
-      max-width: 860px;
-      margin: 0 auto;
-      background: #f6f6ef;
-    }
-
-    /* HEADER */
-    .header { background: #0b5adb; padding: 2px; }
-    .pagetop {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      padding: 2px 4px;
-    }
-    .logo-wrap {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-right: 8px;
-    }
-    .hnname { color: #fff; font-weight: bold; font-size: 13pt; letter-spacing: -.3px; }
-    .logo-box {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px; height: 18px;
-      border: 1px solid #fff;
-      font-size: 10pt;
-      font-weight: bold;
-      color: #fff;
-    }
-    .pagetop a { color: rgba(255,255,255,.85); font-size: 10pt; padding: 0 4px; }
-    .pagetop a:hover { color: #fff; }
-    .pagetop a.active-nav { color: #fff; font-weight: bold; }
-    .pagetop .nav-sep { color: rgba(255,255,255,.4); }
-    .pagetop .spacer { flex: 1; }
-    .pagetop .login { color: rgba(255,255,255,.85); font-size: 9pt; }
-
-    .spacer-row { height: 10px; background: #0b5adb; }
-
-    /* FORM */
-    .submit-wrap {
-      padding: 20px 10px 20px 42px;
-    }
-
-    .submit-wrap h2 {
-      font-size: 11pt;
-      font-weight: bold;
-      margin-bottom: 14px;
-      color: #000;
-    }
-
-    .form-row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 8px;
-      gap: 8px;
-    }
-
-    .form-row label {
-      width: 60px;
-      font-size: 10pt;
-      color: #000;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .form-row input,
-    .form-row select {
-      font-family: Verdana, sans-serif;
-      font-size: 10pt;
-      border: 1px solid #ccc;
-      padding: 2px 4px;
-      outline: none;
-      background: #fff;
-    }
-
-    .form-row input[name="title"] { width: 400px; }
-    .form-row input[name="url"]   { width: 400px; }
-    .form-row input[name="author"]{ width: 200px; }
-    .form-row select[name="cat"]  { width: 140px; }
-
-    .form-row input:focus,
-    .form-row select:focus { border-color: #0b5adb; }
-
-    .submit-btn {
-      margin-top: 10px;
-      margin-left: 68px;
-      padding: 3px 12px;
-      font-family: Verdana, sans-serif;
-      font-size: 10pt;
-      background: #f6f6ef;
-      border: 1px solid #ccc;
-      cursor: pointer;
-    }
-    .submit-btn:hover { border-color: #0b5adb; color: #0b5adb; }
-
-    #msg {
-      margin-left: 68px;
-      margin-top: 10px;
-      font-size: 9pt;
-      display: none;
-    }
-    #msg.ok  { color: #008000; }
-    #msg.err { color: #cc0000; }
-
-    /* FOOTER */
-    .footer {
-      margin-top: 20px;
-      padding: 10px 0;
-      text-align: center;
-      border-top: 1px solid #e8e8e0;
-    }
-    .footer a { color: #828282; font-size: 8pt; margin: 0 4px; }
-    .footer a:hover { text-decoration: underline; }
-  </style>
+  <title>Submit — Kactii News</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
 
-<table id="hnmain" border="0" cellpadding="0" cellspacing="0">
-  <tbody>
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="logo" aria-label="Kactii News home">
+        <span class="logo-bracket">[</span>Kactii<span class="logo-bracket">]</span>
+        <span class="logo-sub">News</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/posts" class="nav-link-btn">Posts</a>
+        <a href="/submit" class="btn-submit">Submit</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- HEADER -->
-    <tr>
-      <td class="header">
-        <div class="pagetop">
-          <a href="/" class="logo-wrap">
-            <span class="logo-box">K</span>
-            <span class="hnname">Kactii News</span>
-          </a>
-          <a href="/">new</a>
-          <span class="nav-sep">&nbsp;|&nbsp;</span>
-          <a href="/">top</a>
-          <span class="nav-sep">&nbsp;|&nbsp;</span>
-          <a href="/">ask</a>
-          <span class="nav-sep">&nbsp;|&nbsp;</span>
-          <a href="/">show</a>
-          <span class="nav-sep">&nbsp;|&nbsp;</span>
-          <a href="/submit" class="active-nav">submit</a>
-          <span class="spacer"></span>
-          <a href="#" class="login">login</a>
+  <!-- SUBMIT FORM PAGE -->
+  <main class="container">
+    <div class="form-page">
+
+      <div class="form-page-header">
+        <h1>Submit a Post</h1>
+        <p>Share a link or start a discussion with the community.</p>
+      </div>
+
+      <form id="submit-form" class="submit-card" novalidate>
+
+        <div class="form-group">
+          <label for="post-title">Title <span class="required" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="post-title"
+            name="title"
+            placeholder="What's this about?"
+            required
+            aria-required="true"
+            autocomplete="off"
+          />
+          <span class="field-error" id="title-error" role="alert"></span>
         </div>
-      </td>
-    </tr>
 
-    <!-- SPACER -->
-    <tr><td class="spacer-row"></td></tr>
-
-    <!-- FORM -->
-    <tr>
-      <td>
-        <div class="submit-wrap">
-          <form id="submitForm">
-
-            <div class="form-row">
-              <label for="title">title</label>
-              <input id="title" name="title" type="text" maxlength="200" required />
-            </div>
-
-            <div class="form-row">
-              <label for="url">url</label>
-              <input id="url" name="url" type="url" placeholder="https://" required />
-            </div>
-
-            <div class="form-row">
-              <label for="cat">category</label>
-              <select id="cat" name="cat">
-                <option value="tech">Tech</option>
-                <option value="ai">AI</option>
-                <option value="science">Science</option>
-                <option value="show">Show KN</option>
-                <option value="law">Law</option>
-              </select>
-            </div>
-
-            <button type="submit" class="submit-btn">submit</button>
-            <div id="msg"></div>
-
-          </form>
+        <div class="form-group">
+          <label for="post-url">URL <span class="optional">(optional)</span></label>
+          <input
+            type="url"
+            id="post-url"
+            name="url"
+            placeholder="https://example.com"
+          />
+          <span class="field-error" id="url-error" role="alert"></span>
         </div>
-      </td>
-    </tr>
 
-    <!-- FOOTER -->
-    <tr>
-      <td>
-        <div class="footer">
-          <a href="#">Guidelines</a> |
-          <a href="#">FAQ</a> |
-          <a href="#">API</a> |
-          <a href="#">Security</a> |
-          <a href="#">Legal</a> |
-          <a href="#">Contact</a>
+        <div class="form-group">
+          <label for="post-author">Author <span class="required" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="post-author"
+            name="author"
+            placeholder="Your username"
+            required
+            aria-required="true"
+            autocomplete="off"
+          />
+          <span class="field-error" id="author-error" role="alert"></span>
         </div>
-      </td>
-    </tr>
 
-  </tbody>
-</table>
+        <div class="form-actions">
+          <a href="/" class="btn-cancel">Cancel</a>
+          <button type="submit" class="btn-primary">Submit Post</button>
+        </div>
 
-<script>
-  document.getElementById('submitForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const msg = document.getElementById('msg');
-    msg.style.display = 'none';
+      </form>
+    </div>
+  </main>
 
-    const payload = {
-      title:  document.getElementById('title').value.trim(),
-      url:    document.getElementById('url').value.trim(),
-      author: document.getElementById('author').value.trim() || 'anonymous',
-      cat:    document.getElementById('cat').value,
-    };
-
-    try {
-      const res = await fetch('/api/addStory', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json();
-
-      if (data.error) {
-        msg.textContent = data.error;
-        msg.className = 'err';
-        msg.style.display = 'block';
-      } else {
-        msg.textContent = 'Story submitted successfully.';
-        msg.className = 'ok';
-        msg.style.display = 'block';
-        document.getElementById('submitForm').reset();
-        setTimeout(() => window.location.href = '/', 1200);
-      }
-    } catch {
-      msg.textContent = 'Something went wrong. Please try again.';
-      msg.className = 'err';
-      msg.style.display = 'block';
-    }
-  });
-</script>
-
+  <script src="/static/submit.js"></script>
 </body>
 </html>

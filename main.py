@@ -61,6 +61,11 @@ async def home(request: Request):
 async def submit_page(request: Request):
     return templates.TemplateResponse("submit.html", {"request": request})
 
+
+@app.get("/posts", response_class=HTMLResponse)
+async def posts_page(request: Request):
+    return templates.TemplateResponse("posts.html", {"request": request})
+
 # ─────────────────────────────
 # GET STORIES
 # ─────────────────────────────
@@ -87,13 +92,14 @@ async def add_story(request: Request):
     author = body.get("author", "anonymous")
     cat = body.get("cat", "tech")
 
-    if not title or not url:
-        return {"error": "Missing title or URL"}
+    if not title:
+        return {"error": "Missing title"}
 
-    # Extract domain safely
+    # URL is optional
+    url = url or ""
     try:
-        domain = urlparse(url).netloc
-    except:
+        domain = urlparse(url).netloc if url else ""
+    except Exception:
         domain = "unknown"
 
     new_story = {

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Posts — Kactii News</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="logo" aria-label="Kactii News home">
+        <span class="logo-bracket">[</span>Kactii<span class="logo-bracket">]</span>
+        <span class="logo-sub">News</span>
+      </a>
+      <div class="nav-actions">
+        <!-- Search toggle -->
+        <button
+          class="search-icon-btn"
+          id="search-toggle"
+          aria-label="Toggle search"
+          aria-expanded="false"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <label for="search-input" class="sr-only">Search posts</label>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Search posts..."
+          autocomplete="off"
+          aria-label="Search posts"
+          hidden
+        />
+        <a href="/posts" class="nav-link-btn">Posts</a>
+        <a href="/submit" class="btn-submit">Submit</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SORT BAR -->
+  <div class="sort-bar" id="sort-bar" role="toolbar" aria-label="Sort options" hidden>
+    <span class="sort-label">Sort by:</span>
+    <button class="sort-btn active" data-sort="newest" aria-pressed="true">Newest</button>
+    <button class="sort-btn" data-sort="points" aria-pressed="false">Most Points</button>
+    <span class="post-count" id="post-count" aria-live="polite"></span>
+  </div>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- Loading skeleton -->
+    <div id="loading" class="loading-wrapper" role="status" aria-label="Loading posts">
+      <div class="skeleton-item" aria-hidden="true"></div>
+      <div class="skeleton-item" aria-hidden="true"></div>
+      <div class="skeleton-item" aria-hidden="true"></div>
+      <div class="skeleton-item" aria-hidden="true"></div>
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty-state" hidden aria-live="polite">
+      <div class="empty-icon" aria-hidden="true">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+          stroke="#c0c0c0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="18" x2="12" y2="12"/>
+          <line x1="9" y1="15" x2="15" y2="15"/>
+        </svg>
+      </div>
+      <p class="empty-title">No posts yet</p>
+      <p class="empty-sub">Be the first — <a href="/submit">submit something</a>.</p>
+    </div>
+
+    <!-- No search results -->
+    <div id="no-results" class="empty-state" hidden aria-live="polite">
+      <p class="empty-title">No results found</p>
+      <p class="empty-sub">Try a different search term.</p>
+    </div>
+
+    <!-- Post list -->
+    <ol class="post-list" id="post-list" aria-label="News posts" aria-live="polite" hidden></ol>
+
+  </main>
+
+  <script src="/static/posts.js"></script>
+</body>
+</html>
